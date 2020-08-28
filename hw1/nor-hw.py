@@ -1,3 +1,7 @@
+'''
+Liam Adams - lbadams2
+'''
+
 from dwave.system.samplers import DWaveSampler
 from dwave.system.composites import EmbeddingComposite
 sampler = DWaveSampler()

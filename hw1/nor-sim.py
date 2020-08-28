@@ -1,3 +1,7 @@
+'''
+Liam Adams - lbadams2
+'''
+
 from dimod import ExactSolver
 
 sampler = ExactSolver()
