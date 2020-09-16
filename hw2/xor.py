@@ -11,12 +11,10 @@ Q = {('q1','q2'): 1, ('q1','q3'): 2, ('q2','q3'): 2, ('q1','q1'): -1, ('q2','q2'
      ('q1','q3'): 1, ('q1','q4'): 2, ('q3','q4'): 2, ('q4','q4'): -1, # q1 NOR q3 = q4
      ('q2','q3'): 1, ('q2','q5'): 2, ('q3','q5'): 2, ('q5','q5'): -1, # q2 NOR q3 = q5
      ('q4','q5'): 1, ('q4','q6'): 2, ('q5','q6'): 2, ('q6','q6'): -1, # q4 NOR q5 = q6
-    
-    # duplicate q6
-     ()
+    # above valid
 
+    # duplicate q6
      ('q6','q7'): 1, ('q6','q8'): 2, ('q7','q8'): 2, ('q8','q8'): -1, # q6 NOR q7 = q8
-    
     }
 
 response = sampler_embedded.sample_qubo(Q, num_reads=5000)
