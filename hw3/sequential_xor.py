@@ -33,7 +33,7 @@ def create_xor_seq(n):
     qc.barrier()
     m = ClassicalRegister(1, 'output')
     qc.add_register(m)
-    qc.measure(a[12], m)
+    qc.measure(a[n-1], m)
 
     return qc
 
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     job = execute(qc, backend, shots=4096)  # shots default = 1024
     result = job.result()
     print(result.get_counts())
-
+    
     qc.draw(output='mpl')
     plot_histogram(result.get_counts()) # output is just the second qubit activated/inactivated by CNOT
     plt.show()
