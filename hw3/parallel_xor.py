@@ -1,3 +1,6 @@
+'''
+Liam Adams - lbadams2
+'''
 from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit
 from qiskit.quantum_info.operators import Operator
 from qiskit import Aer, execute
@@ -43,12 +46,12 @@ def create_circuit(n):
 
 
 if __name__ == '__main__':
-    qc = create_circuit(6)
+    qc = create_circuit(6) # using 13 here will make your laptop crash
 
     backend = Aer.get_backend('qasm_simulator')
     job = execute(qc, backend, shots=4096)  # shots default = 1024
     result = job.result()
     print(result.get_counts())
     qc.draw(output='mpl')
-    plot_histogram(result.get_counts()) # output is just the second qubit activated/inactivated by CNOT
+    plot_histogram(result.get_counts())
     plt.show()
