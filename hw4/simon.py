@@ -9,15 +9,20 @@ def dotprod(a, b):
     return temp_sum%2
 
 def oracle(circ, b):
-    # TODO generalize this function
+    # copy contents of first register to second register
+    n = len(b)
     for i, char in enumerate(b):
         circ.cx(i, i+len(b))
-
-    circ.cx(1, 4)
-    circ.cx(1, 5)
+        # for bits in b = 1, make corresponding qubits in second register target of CNOT
+        # if b = 110, second reg is |q3q4q5>, targets are q4 and q5
+        if char == '1':
+            target = (2*n - 1) - i
+            control = n - 1 # not sure what this should be (most significant qubit in first register)
+            circ.cx(control, target)        
 
 # Main function
-b = '110'
+#b = '110'
+b = '1010'
 n = len(b)
 circ = QuantumCircuit(n*2, n)
 
